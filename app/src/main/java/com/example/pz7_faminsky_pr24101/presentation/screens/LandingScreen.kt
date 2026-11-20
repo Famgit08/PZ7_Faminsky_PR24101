@@ -79,6 +79,14 @@ fun LandingScreen(navController: NavController) {
                                 navController.navigate("schedule")
                             }
                         )
+                        NavigationDrawerItem(
+                            label = { Text("Правовая информация") },
+                            selected = false,
+                            onClick = {
+                                isMenuOpen = false
+                                navController.navigate("legal")
+                            }
+                        )
                     }
                 }
             ) {
