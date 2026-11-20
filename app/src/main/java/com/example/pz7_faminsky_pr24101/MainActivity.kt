@@ -17,17 +17,23 @@ import com.example.pz7_faminsky_pr24101.presentation.screens.LoginScreen
 import com.example.pz7_faminsky_pr24101.presentation.screens.LandingScreen
 import com.example.pz7_faminsky_pr24101.presentation.screens.ScheduleGameScreen
 import com.example.pz7_faminsky_pr24101.presentation.screens.SuccessScreen
+import com.example.pz7_faminsky_pr24101.presentation.screens.LegalScreen
+import androidx.compose.runtime.LaunchedEffect
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sharedPrefs = getSharedPreferences("app_prefs", MODE_PRIVATE)
+
         setContent {
             PZ7_Faminsky_PR24101Theme {
                 Surface(modifier = Modifier.fillMaxSize()) {
                     val navController = rememberNavController()
+                    val lastScreen = sharedPrefs.getString("last_screen", "splash") ?: "splash"
                     NavHost(
                         navController = navController,
-                        startDestination = "splash"
+                        startDestination = lastScreen
+
                     ) {
                         composable("splash") {
                             SplashScreen(navController)
@@ -55,6 +61,14 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("success") {
                             SuccessScreen(navController)
+                        }
+                        composable("legal") {
+                            LegalScreen(navController)
+                        }
+                    }
+                    LaunchedEffect(navController) {
+                        navController.addOnDestinationChangedListener { _, destination, _ ->
+                            sharedPrefs.edit().putString("last_screen", destination.route).apply()
                         }
                     }
                 }
