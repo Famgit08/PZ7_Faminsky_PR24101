@@ -12,6 +12,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pz7_faminsky_pr24101.presentation.screens.OnboardingScreen
 import com.example.pz7_faminsky_pr24101.presentation.screens.SplashScreen
 import com.example.pz7_faminsky_pr24101.presentation.theme.PZ7_Faminsky_PR24101Theme
+import com.example.pz7_faminsky_pr24101.presentation.screens.RegistrationScreen
+import com.example.pz7_faminsky_pr24101.presentation.screens.LoginScreen
+import com.example.pz7_faminsky_pr24101.presentation.screens.LandingScreen
+import com.example.pz7_faminsky_pr24101.presentation.screens.ScheduleGameScreen
+import com.example.pz7_faminsky_pr24101.presentation.screens.SuccessScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,8 +36,19 @@ class MainActivity : ComponentActivity() {
                             OnboardingScreen(navController)
                         }
                         composable("registration") {
-                            // Заглушка для регистрации
-                            androidx.compose.material3.Text("Экран регистрации (скоро)")
+                            RegistrationScreen(navController)
+                        }
+                        composable("login") {
+                            LoginScreen(navController)
+                        }
+                        composable("landing") {
+                            LandingScreen(navController)
+                        }
+                        composable("schedule") {
+                            ScheduleGameScreen(navController)
+                        }
+                        composable("success") {
+                            SuccessScreen(navController)
                         }
                     }
                 }
