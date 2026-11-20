@@ -28,7 +28,11 @@ class MainActivity : ComponentActivity() {
                             SplashScreen(navController)
                         }
                         composable("onboarding") {
-                            OnboardingScreen()
+                            OnboardingScreen(navController)
+                        }
+                        composable("registration") {
+                            // Заглушка для регистрации
+                            androidx.compose.material3.Text("Экран регистрации (скоро)")
                         }
                     }
                 }
