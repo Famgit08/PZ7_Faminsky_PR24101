@@ -20,7 +20,6 @@ fun ScheduleGameScreen(navController: NavController) {
     var selectedDate by remember { mutableStateOf("Выберите дату") }
     var selectedTime by remember { mutableStateOf("Выберите время") }
 
-    // Календарь для выбора даты
     val calendar = Calendar.getInstance()
 
     Column(
@@ -37,7 +36,6 @@ fun ScheduleGameScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Название игры
         OutlinedTextField(
             value = gameName,
             onValueChange = { gameName = it },
@@ -48,7 +46,6 @@ fun ScheduleGameScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Кнопка выбора даты
         OutlinedButton(
             onClick = {
                 DatePickerDialog(
@@ -68,7 +65,6 @@ fun ScheduleGameScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(16.dp))
 
-        // Кнопка выбора времени
         OutlinedButton(
             onClick = {
                 TimePickerDialog(
@@ -88,7 +84,6 @@ fun ScheduleGameScreen(navController: NavController) {
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Кнопка Publish
         Button(
             onClick = {
                 if (gameName.isNotEmpty() && selectedDate != "Выберите дату" && selectedTime != "Выберите время") {

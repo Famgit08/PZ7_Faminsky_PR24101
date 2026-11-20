@@ -50,6 +50,12 @@ class MainActivity : ComponentActivity() {
                         composable("success") {
                             SuccessScreen(navController)
                         }
+                        composable("schedule") {
+                            ScheduleGameScreen(navController)
+                        }
+                        composable("success") {
+                            SuccessScreen(navController)
+                        }
                     }
                 }
             }
